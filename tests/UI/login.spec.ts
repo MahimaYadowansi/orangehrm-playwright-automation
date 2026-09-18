@@ -1,10 +1,10 @@
-import{test, expect} from '../../../fixtures/base.fixture'
-import { env } from '../../../config/env';
+import { test, expect } from '../../fixtures/base.fixture';
+import { env } from '../../config/env';
 import path from 'path';
-import { readExcel } from '../../../utils/ExcelReader';
+import { readExcel } from '../../utils/ExcelReader';
 
 //Excel file path
-const filePath=path.join(__dirname , '../../../test-data/loginData.xlsx');
+const filePath = path.join(__dirname, '../../test-data/loginData.xlsx');
 
 test.describe('Login Functionality' ,async ()=>{
     //To run in serial 
