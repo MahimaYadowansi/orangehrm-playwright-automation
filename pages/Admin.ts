@@ -122,7 +122,7 @@ async cnfrmPassword(cnfrmPassword:string)
    await this.user_savebtn.click();
  }
 
-async serachUser(serachUsername:String)
+async serachUser(serachUsername: string)
  {
      const userRow = this.userTable
         .locator("[role='row']")
@@ -132,10 +132,38 @@ async serachUser(serachUsername:String)
         .locator("[role='cell']")
         .nth(1);
 
-    return usernameCell;
-    
+      return usernameCell;
+      
+      
+  }
 
- }
+ async editUser(oldusername: string , newUsername:string) {
+   
+    const userRow = this.userTable
+        .locator("[role='row']")
+        .filter({ hasText: oldusername });
+
+    await userRow
+        .locator("button")
+        .nth(1)
+        .click();
+
+     await this.admin_username.fill(newUsername); 
+     await this.user_savebtn.click(); 
+
+}
+async deleteUser(serachUsername:string) {
+    const userRow = this.userTable
+        .locator("[role='row']")
+        .filter({ hasText: serachUsername });
+
+    await userRow
+        .locator("button")
+        .nth(0)
+        .click();
+
+        await this.page.getByRole("button" , {name:" Yes, Delete "}).click();
+}
 
 
 }

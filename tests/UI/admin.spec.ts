@@ -27,9 +27,9 @@ test.describe("Admin User Management", () => {
         const adminPage = new AdminPage(page);
 
         await adminPage.navigateToAdmin();
-       const usernameCell = await adminPage.serachUser("Jalal1789907054");
+       const usernameCell = await adminPage.serachUser("FMLName");
 
-       await expect(usernameCell).toHaveText("Jalal1789907054");
+       await expect(usernameCell).toHaveText("FMLName");
 
         
         
@@ -38,30 +38,27 @@ test.describe("Admin User Management", () => {
     });
 
 
-    // test("TC03 - Edit Admin User", async ({ page }) => {
+    test("TC03 - Edit Admin User", async ({ page , authenticated }) => {
 
-    //     const adminPage = new AdminPage(page);
+       const adminPage = new AdminPage(page);
 
-    //     await adminPage.navigateToAdmin();
+      await adminPage.navigateToAdmin();
+      
 
-    //     await adminPage.editUser(
-    //         "testadmin123",
-    //         "updatedadmin123"
-    //     );
-    // });
+       await adminPage.editUser("Hello", "HelloV");
+     });
 
 
-    // test("TC04 - Delete Admin User", async ({ page }) => {
+    test("TC04 - Delete Admin User", async ({ page, authenticated }) => {
 
-    //     const adminPage = new AdminPage(page);
+        const adminPage = new AdminPage(page);
 
-    //     await adminPage.navigateToAdmin();
+        await adminPage.navigateToAdmin();
 
-    //     await adminPage.deleteUser("updatedadmin123");
+        await adminPage.deleteUser("abdullahJ");
 
-    //     await adminPage.verifyUserNotPresent(
-    //         "updatedadmin123"
-    //     );
-    // });
+        
+        
+    });
 
 });
