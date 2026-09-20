@@ -22,14 +22,20 @@ test.describe("Admin User Management", () => {
     });
 
 
-    // test("TC02 - Search Admin User", async ({ page }) => {
+    test("TC02 - Search Admin User", async ({ page , authenticated}) => {
 
-    //     const adminPage = new AdminPage(page);
+        const adminPage = new AdminPage(page);
 
-    //     await adminPage.navigateToAdmin();
+        await adminPage.navigateToAdmin();
+       const usernameCell = await adminPage.serachUser("Jalal1789907054");
 
-    //     await adminPage.searchUser("testadmin123");
-    // });
+       await expect(usernameCell).toHaveText("Jalal1789907054");
+
+        
+        
+
+        
+    });
 
 
     // test("TC03 - Edit Admin User", async ({ page }) => {

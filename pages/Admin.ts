@@ -21,8 +21,9 @@ export class AdminPage{
     readonly search_user:Locator;
     readonly serach_userbtn:Locator;
 
-    //
-
+    readonly userTable:Locator;
+    readonly tableHeaderUsername:Locator;
+    readonly rowCell:Locator;
 
 
  constructor(page:Page)
@@ -63,15 +64,22 @@ export class AdminPage{
     .filter({ hasText: /^Confirm Password$/ })
     .locator("input");
     this.user_savebtn=page.locator("//button[@type='submit' ]");
+
     //search
-    this.serach_userbtn=page.locator("//button[@class='oxd-button oxd-button--medium oxd-button--secondary orangehrm-left-space']");
-    this.search_user=page.locator("//input[@class='oxd-input oxd-input--focus']");
+    this.serach_userbtn=page.locator("//button[@type='submit' and text()=' Search ' ]")
+    //this.search_user=page.locator("//input[@class='oxd-input oxd-input--focus']");
+    this.userTable=page.locator("//div[@role='table']");
+    this.tableHeaderUsername=page.locator("//div[@role='columnheader' and text()='Username']")
+    this.rowCell=page.locator("//div[@role='cell']");
+   
+
   }
  
  async navigateToAdmin()
  {
   await this.admin.click();
  }
+
   async adduser()
   {
    await this.add_user.click();
@@ -114,7 +122,20 @@ async cnfrmPassword(cnfrmPassword:string)
    await this.user_savebtn.click();
  }
 
+async serachUser(serachUsername:String)
+ {
+     const userRow = this.userTable
+        .locator("[role='row']")
+        .filter({ hasText: serachUsername });
 
+    const usernameCell = userRow
+        .locator("[role='cell']")
+        .nth(1);
+
+    return usernameCell;
+    
+
+ }
 
 
 }
