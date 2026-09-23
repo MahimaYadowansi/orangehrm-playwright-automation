@@ -18,7 +18,7 @@ use: {
   screenshot : 'on' ,
   video : 'off' ,
   trace : 'retain-on-failure',
-  headless : false
+  headless : !!process.env.CI,
 },
 
 projects: [
