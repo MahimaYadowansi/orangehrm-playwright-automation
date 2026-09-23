@@ -8,6 +8,14 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+  
+    env:
+      ORANGEHRM_BASE_URL: ${{secrets.ORANGEHRM_BASE_URL}}
+      ORANGEHRM_USERNAME: ${{ secrets.ORANGEHRM_USERNAME }}
+      ORANGEHRM_PASSWORD: ${{ secrets.ORANGEHRM_PASSWORD }}
+      ORANGEHRM_DASHBOARD_URL: ${{secrets.ORANGEHRM_DASHBOARD_URL}}
+
+
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4

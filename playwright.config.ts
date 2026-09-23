@@ -6,9 +6,11 @@ export default defineConfig ({
 testDir: './tests',
 reporter : [
   ['html' , {
-    outputFolder: 'reports/html',
+    outputFolder: ['reports/html'],
     open: 'always',
-  }]
+  }],
+
+  ['allure-playwright']
 ],
 
 use: {
