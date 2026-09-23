@@ -4,13 +4,15 @@ import { env } from "./config/env";
 export default defineConfig ({
 
 testDir: './tests',
-reporter : [
-  ['html' , {
-    outputFolder: ['reports/html'],
-    open: 'always',
-  }],
-
-  ['allure-playwright']
+reporter: [
+  [
+    'html',
+    {
+      outputFolder: 'reports/html',
+      open: 'never',
+    },
+  ],
+  ['allure-playwright'],
 ],
 
 use: {
