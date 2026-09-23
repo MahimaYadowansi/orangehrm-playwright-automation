@@ -27,9 +27,9 @@ test.describe("Admin User Management", () => {
         const adminPage = new AdminPage(page);
 
         await adminPage.navigateToAdmin();
-       const usernameCell = await adminPage.serachUser("dfewcdwd");
+       const usernameCell = await adminPage.serachUser("FMLName1");
 
-       await expect(usernameCell).toHaveText("dfewcdwd");
+       await expect(usernameCell).toHaveText("FMLName1");
 
         
         
@@ -45,7 +45,7 @@ test.describe("Admin User Management", () => {
       await adminPage.navigateToAdmin();
       
 
-       await adminPage.editUser("juanperez1", "juanperez1");
+       await adminPage.editUser("Jobinsam@6742", "Jobinsam@6742");
      });
 
 
@@ -55,7 +55,7 @@ test.describe("Admin User Management", () => {
 
         await adminPage.navigateToAdmin();
 
-        await adminPage.deleteUser("KalyaniK2");
+        await adminPage.deleteUser("sebrina.krajcik");
 
         
         
